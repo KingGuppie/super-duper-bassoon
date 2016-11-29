@@ -57,6 +57,7 @@ public class Project {
 				score = subtraction(range);
 			}else if(input.contains("x")&&level==4){
 				//do multiplication thing
+				score = multiplication();
 			}else{
 				//informs user of bad input
 				System.out.println("Error, please give the proper input");
@@ -164,7 +165,33 @@ public class Project {
 	            
 	   }
 
-
+	   public static int multiplication(){
+		   Random rng = new Random();
+		   Scanner kb = new Scanner(System.in);
+		   
+		   int i = 3, score = 0, c = 0;
+		   
+		   while(i>0){
+			   int x = rng.nextInt(11), y = rng.nextInt(11);
+			   int product = x*y;
+			   
+			   System.out.println(x + " x " + y + " = ?");
+			   System.out.print("? = ");
+			   
+			   int response = kb.nextInt();
+			   
+			   if(response==product){
+				   System.out.println("Correct!\n");
+				   score++;
+			   }else{
+				   i--;
+				   System.out.println("Incorrect! You have " + i + " tries remaining\n");
+			   }
+			   c++;
+		   }
+		   
+		   return score;
+	   }
 
 	
 }
