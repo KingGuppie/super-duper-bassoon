@@ -1,3 +1,6 @@
+/* CSCI1100 - Project of Projecting
+ * 
+ */
 import java.util.Scanner;
 import java.util.Random;
 
