@@ -55,7 +55,7 @@ public class Project {
 				System.out.println("Would you like to try addition or subtraction? Please type + or -: ");
 				if(level==4){//fourth graders can try multiplication, does not use same range as above
 					System.out.println("Or as a fourth grader, you can try multiplication by typing x: ");
-					System.out.print("Or division by typing /");
+					System.out.print("Or division by typing /: ");
 				}
    			
 				x=true;
@@ -274,11 +274,21 @@ public class Project {
 		   System.out.println(x + " ÷ " + y + " = ?");
 		   System.out.print("? = ");
 		   
-		   String input = kb.nextLine();
+		   String input = kb.nextLine().toUpperCase();
 		   if(input.contains("R")){
 			   int userQ = Integer.parseInt(input.substring(0, input.indexOf('R')));
 			   int userR = Integer.parseInt(input.substring(input.indexOf('R')+1));
+			   
 			   if(userQ==quotient&&userR==remainder){
+				   System.out.println("Correct!\n");
+				   score++;
+			   }else{
+				   i--;
+				   System.out.println("Incorrect! You have " + i + " tries remaining\n");
+			   }
+		   }else if(remainder==0){
+			   int answer = Integer.parseInt(input);
+			   if(answer==quotient){
 				   System.out.println("Correct!\n");
 				   score++;
 			   }else{
