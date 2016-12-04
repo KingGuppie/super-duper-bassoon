@@ -107,6 +107,32 @@ public class Project {
 		}
 		
 	}
+	
+	public static boolean pedmas(int range){
+		//initialize boolean to false
+		boolean correct = false;
+		
+		//make new random and scanner object
+	    Random rng = new Random();
+	    Scanner kb = new Scanner(System.in);
+		
+	    int x = rng.nextInt(range), y = rng.nextInt(range),z= rng.nextInt(range);
+	    
+	    int sign1 = rng.nextInt(1),sign2=rng.nextInt(1);
+	    int sum = 0;
+	    
+	    if(sign1==1&&sign2==1){
+	    	sum = x+y+z;
+	    }else if(sign1==1&&sign2==0){
+	    	sum = x+y-z;
+	    }else if(sign1==0&&sign2==0){
+	    	sum = x-y-z;
+	    }else{
+	    	sum = x-y+z;
+	    }
+	    
+		return correct;
+	}
 	public static int addition(int max){
 	      //random variable r, Scanner variable input
 	      Random r = new Random();
@@ -124,14 +150,21 @@ public class Project {
 	         //puts random ints into 2 different variables
 	         int num1 = r.nextInt((max-0)+1) + 0;
 	         int num2 = r.nextInt((max-0)+1) + 0;
+	         int answer;
 	         
-	         //prints questions using random variables
-	         System.out.println(num1 + "+" + num2 + " = ?");
-	         System.out.print("? = ");
-	         
+	         if(questionCounter%10!=0){
+	        	 //prints questions using random variables
+	        	 System.out.println(num1 + "+" + num2 + " = ?");
+	        	 System.out.print("? = ");
+	        	 
+	        	 //gets answer from user 
+		         answer = input.nextInt();
+	         }else{
+	        	 
+	         }
 	         
 	         //gets answer from user 
-	         int answer = input.nextInt();
+	          answer = input.nextInt();
 	         
 	         //checks if answer is wrong, if wrong reduces lives (i) and continues to next question
 	         if (answer != (num1 + num2)){
