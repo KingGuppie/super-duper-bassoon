@@ -1,6 +1,12 @@
-/* CSCI1100 - Project of Projecting
- * 
- */
+/* CSCI1100 - The Great Math Test By Team:  Cult of Cats
+ * Members: Isaac Meuse B00738288, Justin Sedge B00737890.
+   December 6th, 2016
+ 
+   Our project is a math program designed for 1st-4th graders.
+   given the options to do additions questions and subtraction questions.
+   each grade has a different range of numbers that can be radnomly chosen for their questions.
+   4th graders have the options to do multiplication and division from numbers ranging 0-10
+   an array keeps track of the top 5 high scores, and the names of those users  */
 import java.util.Scanner;
 import java.util.Random;
 
@@ -52,9 +58,9 @@ public class Project {
    		
 			//keeps trying to get valid input
 			while(!x){
-				System.out.println("Would you like to try addition or subtraction? Please type + or -: ");
+				System.out.print("Would you like to try addition or subtraction? Please type + or -: ");
 				if(level==4){//fourth graders can try multiplication, does not use same range as above
-					System.out.println("Or as a fourth grader, you can try multiplication by typing x: ");
+					System.out.println("\nor as a fourth grader, you can try multiplication by typing x: ");
 					System.out.print("Or division by typing /: ");
 				}
    			
@@ -122,8 +128,8 @@ public class Project {
 	         System.out.println("Question #" + questionCounter);
 	         
 	         //puts random ints into 2 different variables
-	         int num1 = r.nextInt((max-0)+1) + 0;
-	         int num2 = r.nextInt((max-0)+1) + 0;
+	         int num1 = r.nextInt(max+1);
+	         int num2 = r.nextInt(max+1);
 	         
 	         //prints questions using random variables
 	         System.out.println(num1 + "+" + num2 + " = ?");
@@ -165,7 +171,7 @@ public class Project {
 	       System.out.println("Question #" + questionCounter);
 	         
 	       //puts random ints into 2 different variables
-	       int[] order = checkOrder(r.nextInt((max-0)+1) + 0,r.nextInt((max-0)+1) + 0);
+	       int[] order = checkOrder(r.nextInt(max+1),r.nextInt(max+1));
 	       int num1 = order[0];
 	       int num2 = order[1];
 	               	         
@@ -263,7 +269,7 @@ public class Project {
 	   int d = a%b;
 		   
 	   //output example question and answer
-	   System.out.println(a + " ÷ " + b + " = ?");
+	   System.out.println(a + " Ã· " + b + " = ?");
 	   System.out.println("? = " + e + "R" + d+"\n");
 		   
 	   while(i>0){
@@ -276,7 +282,7 @@ public class Project {
 		   int remainder = x%y;
 		   
 		   //outputs questions
-		   System.out.println(x + " ÷ " + y + " = ?");
+		   System.out.println(x + " Ã· " + y + " = ?");
 		   System.out.print("? = ");
 		   
 		   //converts input to upper case
@@ -345,4 +351,3 @@ public class Project {
 	}
       
 }
-	      
