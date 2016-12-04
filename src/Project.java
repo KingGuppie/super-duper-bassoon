@@ -231,18 +231,20 @@ public class Project {
 		   return score;
 	   }
 	public static int[] checkOrder(int x, int y){
-		   int[] order = new int[2];
+		//make array to hold proper order
+		int[] order = new int[2];
 		   
-		   if(x>y){
-			   order[0]=x;
-			   order[1]=y;
-		   }else{
-			   order[0]=y;
-			   order[1]=x;
-		   }		   
+		//checks which int is higher and places it first
+		if(x>y){
+		   order[0]=x;
+		   order[1]=y;
+	   }else{
+		   order[0]=y;
+		   order[1]=x;
+	   }		   
 		   
-		   return order;		   
-	   }
+	   return order;		   
+	}
 	public static int division(){
 		//make new random and scanner object
 	    Random rng = new Random();
@@ -256,9 +258,11 @@ public class Project {
 	   int[] example = checkOrder(rng.nextInt(10)+1,rng.nextInt(10)+1);
 	   int a = example[0], b = example[1];
 		   
+	   //get answer and remainder for example
 	   int e = a/b;
 	   int d = a%b;
 		   
+	   //output example question and answer
 	   System.out.println(a + " ÷ " + b + " = ?");
 	   System.out.println("? = " + e + "R" + d+"\n");
 		   
@@ -267,6 +271,7 @@ public class Project {
 		   int[] ordered = checkOrder(rng.nextInt(10)+1,rng.nextInt(10)+1);
 		   int x=ordered[0],y=ordered[1];			 			   
 		   		       
+		   //find answer and remainder
 	       int quotient = x/y;
 		   int remainder = x%y;
 		   
@@ -274,11 +279,16 @@ public class Project {
 		   System.out.println(x + " ÷ " + y + " = ?");
 		   System.out.print("? = ");
 		   
+		   //converts input to upper case
 		   String input = kb.nextLine().toUpperCase();
+		   
+		   //checks to see if user gave an answer with a remainder
 		   if(input.contains("R")){
+			   //splits string into remainder and whole number
 			   int userQ = Integer.parseInt(input.substring(0, input.indexOf('R')));
 			   int userR = Integer.parseInt(input.substring(input.indexOf('R')+1));
 			   
+			   //checks if right answer
 			   if(userQ==quotient&&userR==remainder){
 				   System.out.println("Correct!\n");
 				   score++;
@@ -286,8 +296,12 @@ public class Project {
 				   i--;
 				   System.out.println("Incorrect! You have " + i + " tries remaining\n");
 			   }
-		   }else if(remainder==0){
+			   
+		   }else if(remainder==0){//if the user gave no remainder and there isnt one
+			   //converts string to integer
 			   int answer = Integer.parseInt(input);
+			   
+			   //compares against proper answer
 			   if(answer==quotient){
 				   System.out.println("Correct!\n");
 				   score++;
@@ -295,7 +309,7 @@ public class Project {
 				   i--;
 				   System.out.println("Incorrect! You have " + i + " tries remaining\n");
 			   }
-		   }else{
+		   }else{//if the user gave no remainder and should have
 			   i--;
 			   System.out.println("Incorrect! Please use (number)R(remainder) when responding");
 			   System.out.println("You have " + i+ " tries remaining\n");
@@ -303,7 +317,8 @@ public class Project {
 		   c++;
 	   }
    
-		   return score;
+	   //return score
+	   return score;
 	   }
 	
       //method to sort high score array and name Array
