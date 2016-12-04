@@ -4,7 +4,7 @@
  
    Our project is a math program designed for 1st-4th graders.
    given the options to do additions questions and subtraction questions.
-   each grade has a different range of numbers that can be radnomly chosen for their questions.
+   each grade has a different range of numbers that can be randomly chosen for their questions.
    4th graders have the options to do multiplication and division from numbers ranging 0-10
    an array keeps track of the top 5 high scores, and the names of those users  */
 import java.util.Scanner;
@@ -122,20 +122,32 @@ public class Project {
 	    Random rng = new Random();
 	    Scanner kb = new Scanner(System.in);
 		
+	    //generate 3 numbers for bonus
 	    int x = rng.nextInt(range), y = rng.nextInt(range),z= rng.nextInt(range);
 	    
+	    //randomly generate sign and initialize sum
 	    int sign1 = rng.nextInt(1),sign2=rng.nextInt(1);
 	    int sum = 0;
 	    
-	    if(sign1==1&&sign2==1){
+	    if(sign1==1&&sign2==1){//outputs the proper signs and calculates sum
 	    	sum = x+y+z;
+	    	System.out.println(x + " + " + y + " + " + z +  " = ?");
 	    }else if(sign1==1&&sign2==0){
 	    	sum = x+y-z;
+	    	System.out.println(x + " + " + y + " - " + z +  " = ?");
 	    }else if(sign1==0&&sign2==0){
 	    	sum = x-y-z;
+	    	System.out.println(x + " - " + y + " - " + z +  " = ?");
 	    }else{
 	    	sum = x-y+z;
+	    	System.out.println(x + " + " + y + " + " + z +  " = ?");
 	    }
+	    
+	    System.out.print("? = ");
+	    
+	    int input = kb.nextInt();
+	    
+	    if (input==sum)correct=true;
 	    
 		return correct;
 	}
@@ -154,14 +166,13 @@ public class Project {
 	         System.out.println("Question #" + questionCounter);
 	         
 	         //puts random ints into 2 different variables
-<<<<<<< HEAD
-	         int num1 = r.nextInt((max-0)+1) + 0;
-	         int num2 = r.nextInt((max-0)+1) + 0;
+
+	         
 	         int answer;
-=======
+
 	         int num1 = r.nextInt(max+1);
 	         int num2 = r.nextInt(max+1);
->>>>>>> origin/master
+
 	         
 	         if(questionCounter%10!=0){
 	        	 //prints questions using random variables
@@ -171,11 +182,13 @@ public class Project {
 	        	 //gets answer from user 
 		         answer = input.nextInt();
 	         }else{
-	        	 
+	        	 if(pedmas(max)){
+	        		 answer=num1+num2;
+	        	 }else{
+	        		 answer=-20;
+	        	 }
 	         }
-	         
-	         //gets answer from user 
-	          answer = input.nextInt();
+	         	         
 	         
 	         //checks if answer is wrong, if wrong reduces lives (i) and continues to next question
 	         if (answer != (num1 + num2)){
@@ -195,7 +208,7 @@ public class Project {
 	}
 	//method for subtraction math problems
 	public static int subtraction(int max){
-		//random variale r, Scanner variable input
+		//random variable r, Scanner variable input
 	    Random r = new Random();
 	    Scanner input = new Scanner(System.in);
 	      
@@ -203,7 +216,7 @@ public class Project {
 	    rightCounter = number of question gotten correct by user                 */
 	    int i = 3, questionCounter = 1, rightCounter = 0;
 	      
-	    //loops untill 3 questions were gotten incorrect
+	    //loops until 3 questions were gotten incorrect
 	    while (i >0){
 	         
 	       System.out.println("Question #" + questionCounter);
@@ -212,16 +225,24 @@ public class Project {
 	       int[] order = checkOrder(r.nextInt(max+1),r.nextInt(max+1));
 	       int num1 = order[0];
 	       int num2 = order[1];
-	               	         
-	       //prints questions using random variables
-	       System.out.println(num1 + "-" + num2 + " = ?");
-	       System.out.print("? = ");
-	         
-	         
-	       //gets answer from user 
-	       int answer = input.nextInt();
-	         
-	       //checks if answer is wrong, if wrong reuces lives (i) and continues to next question
+	       int answer=0;
+	       
+	       if(questionCounter%10!=0){
+	        	 //prints questions using random variables
+	        	 System.out.println(num1 + "-" + num2 + " = ?");
+	        	 System.out.print("? = ");
+	        	 
+	        	 //gets answer from user 
+		         answer = input.nextInt();
+	         }else{
+	        	 if(pedmas(max)){
+	        		 answer=num1-num2;
+	        	 }else{
+	        		 answer=-20;
+	        	 }
+	         }   	        
+	       	         
+	       //checks if answer is wrong, if wrong reduces lives (i) and continues to next question
 	       if (answer != (num1 - num2)){
 	          i--;
 	          questionCounter++;
@@ -245,7 +266,7 @@ public class Project {
 		   Scanner kb = new Scanner(System.in);
 		   
 		   //initialize variables
-		   int i = 3, score = 0, c = 0;
+		   int i = 3, score = 0, c = 1;
 		   
 		   while(i>0){
 			   //get random values within a range
@@ -254,12 +275,25 @@ public class Project {
 			   //find their product
 			   int product = x*y;
 			   
-			   //outputs questions
-			   System.out.println(x + " x " + y + " = ?");
-			   System.out.print("? = ");
+			   			   
+			   int response = 0;
 			   
-			   //gets user input for answer
-			   int response = kb.nextInt();
+			   if(c%10!=0){
+		        	 //prints questions using random variables
+		        	 System.out.println(x + "x" + y + " = ?");
+		        	 System.out.print("? = ");
+		        	 
+		        	//gets user input for answer
+					response = kb.nextInt();
+		         }else{
+		        	 if(pedmas(100)){
+		        		 response=product;
+		        	 }else{
+		        		 response=-20;
+		        	 }
+		        }
+			   
+			   
 			   
 			   //checks if answer was right, increases score if yes, decrease life if no
 			   if(response==product){
@@ -295,10 +329,10 @@ public class Project {
 	    Scanner kb = new Scanner(System.in);
 		   
 	   //initialize variables
-	   int i = 3, score = 0, c = 0;
+	   int i = 3, score = 0, c = 1;
 		   
 	   //gives user example of input the program wants (it may or may not crash if bad input is given)
-	   System.out.println("For these questions please give your answer as (number)R(remainder)\nExample:\n");
+	   System.out.println("For these questions please give your answer as (number)R(remainder)\nExample:");
 	   int[] example = checkOrder(rng.nextInt(10)+1,rng.nextInt(10)+1);
 	   int a = example[0], b = example[1];
 		   
@@ -307,7 +341,7 @@ public class Project {
 	   int d = a%b;
 		   
 	   //output example question and answer
-	   System.out.println(a + " Ã· " + b + " = ?");
+	   System.out.println(a + " ÷ " + b + " = ?");
 	   System.out.println("? = " + e + "R" + d+"\n");
 		   
 	   while(i>0){
@@ -318,13 +352,26 @@ public class Project {
 		   //find answer and remainder
 	       int quotient = x/y;
 		   int remainder = x%y;
+		   String input;
 		   
-		   //outputs questions
-		   System.out.println(x + " Ã· " + y + " = ?");
-		   System.out.print("? = ");
+		   if(c%10!=0){
+			 //outputs questions
+			   System.out.println(x + " ÷ " + y + " = ?");
+			   System.out.print("? = ");	   
+			   
+			   //converts input to upper case
+			   input = kb.nextLine().toUpperCase();
+	         }else{
+	        	 if(pedmas(100)){
+	        		 remainder=0;
+	        		 input=quotient + "";
+	        	 }else{
+	        		 remainder=12;
+	        		 input="";
+	        	 }
+	        }
 		   
-		   //converts input to upper case
-		   String input = kb.nextLine().toUpperCase();
+		   
 		   
 		   //checks to see if user gave an answer with a remainder
 		   if(input.contains("R")){
