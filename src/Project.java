@@ -366,8 +366,7 @@ public class Project {
 	        		 remainder=0;
 	        		 input=quotient + "";
 	        	 }else{
-	        		 remainder=12;
-	        		 input="";
+	        		 input=quotient+1+"R"+remainder+1;
 	        	 }
 	        }
 		   
