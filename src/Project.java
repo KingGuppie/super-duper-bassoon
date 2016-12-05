@@ -1,12 +1,12 @@
 /* CSCI1100 - The Great Math Test By Team:  Cult of Cats
  * Members: Isaac Meuse B00738288, Justin Sedge B00737890.
-   December 6th, 2016
- 
-   Our project is a math program designed for 1st-4th graders.
-   given the options to do additions questions and subtraction questions.
-   each grade has a different range of numbers that can be randomly chosen for their questions.
-   4th graders have the options to do multiplication and division from numbers ranging 0-10
-   an array keeps track of the top 5 high scores, and the names of those users  */
+ * December 6th, 2016
+ * Our project is a math program designed for 1st-4th graders.
+ * given the options to do additions questions and subtraction questions.
+ * each grade has a different range of numbers that can be randomly chosen for their questions.
+ * 4th graders have the options to do multiplication and division from numbers ranging 0-10
+ * an array keeps track of the top 5 high scores, and the names of those users  
+ */
 import java.util.Scanner;
 import java.util.Random;
 
